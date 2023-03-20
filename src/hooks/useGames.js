@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
 
-const useGames = () => {
+const useGames = (props) => {
   const [games, setGames] = useState([]);
   const [error, setError] = useState("");
 
