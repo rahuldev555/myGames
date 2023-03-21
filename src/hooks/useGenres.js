@@ -1,25 +1,25 @@
 import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
 
-const useGames = (props) => {
-  const [games, setGames] = useState([]);
+const useGenres = () => {
+  const [genres, setGenres] = useState([]);
   const [error, setError] = useState("");
   const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
-    fetchGames();
+    fetchGenres();
   });
 
-  const fetchGames = async () => {
+  const fetchGenres = async () => {
     try {
-      const res = await apiClient.get("/games");
-      setGames(res.data.results);
+      const res = await apiClient.get("/genres");
+      setGenres(res.data.results);
     } catch (err) {
       setError(err.message);
     }
   };
 
-  return { games, error, isLoading };
+  return { genres, error, isLoading };
 };
 
-export default useGames;
+export default useGenres;
