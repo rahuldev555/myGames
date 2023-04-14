@@ -9,15 +9,19 @@ const useGames = () => {
 
   useEffect(() => {
     const controller = new AbortController();
+
+    setLoading(true);
     const fetchGames = async () => {
       try {
         const res = await apiClient.get("/games", {
           signal: controller.signal,
         });
         setGames(res.data.results);
+        setLoading(false);
       } catch (err) {
         if (err instanceof CanceledError) return;
         setError(err.message);
+        setLoading(false);
       }
     };
     fetchGames();
