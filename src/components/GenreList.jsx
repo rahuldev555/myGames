@@ -2,7 +2,7 @@ import { Button, HStack, Image, List, ListItem, Text } from "@chakra-ui/react";
 import useGenres from "../hooks/useGenres";
 import getCroppedImageUrl from "../services/image-url";
 
-const GenreList = ({ onSelectGenre }) => {
+const GenreList = ({ selectedGenre, onSelectGenre }) => {
   const { data, isLoading, error } = useGenres();
   return (
     <div>
@@ -19,6 +19,7 @@ const GenreList = ({ onSelectGenre }) => {
                 onClick={() => onSelectGenre(genre)}
                 fontSize="lg"
                 variant="link"
+                fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
               >
                 {genre.name}
               </Button>
