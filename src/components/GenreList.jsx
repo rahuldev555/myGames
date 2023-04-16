@@ -15,7 +15,7 @@ const GenreList = ({ selectedGenre, onSelectGenre }) => {
   return (
     <>
       <Heading fontSize="2xl" marginBottom={3}>
-        Genres
+        Genres ⬇️
       </Heading>
       <List>
         {data.map((genre) => (
