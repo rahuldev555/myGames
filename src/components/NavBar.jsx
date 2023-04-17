@@ -1,14 +1,14 @@
-import { HStack, Image, Text } from "@chakra-ui/react";
-import logo from "../assets/logo.webp";
+import { HStack, Image, Text, Icon } from "@chakra-ui/react";
 import SearchInput from "./SearchInput";
+import { SiAmazongames } from "react-icons/si";
 
 const NavBar = ({ onSearch }) => {
   return (
     <div>
-      <HStack padding="10px">
-        <Image src={logo} boxSize="60px" />
+      <HStack padding="10px" justifyContent="space-evenly">
+        <Icon as={SiAmazongames} boxSize="80px" />
+
         <SearchInput onSearch={onSearch} />
-        <Text>Rahul's Game's Store</Text>
       </HStack>
     </div>
   );

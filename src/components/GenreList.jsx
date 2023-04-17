@@ -5,17 +5,29 @@ import {
   Image,
   List,
   ListItem,
-  Text,
+  Link as ChakraLink,
 } from "@chakra-ui/react";
 import useGenres from "../hooks/useGenres";
 import getCroppedImageUrl from "../services/image-url";
 
 const GenreList = ({ selectedGenre, onSelectGenre }) => {
-  const { data, isLoading, error } = useGenres();
+  const { data } = useGenres();
   return (
     <>
-      <Heading fontSize="2xl" marginBottom={3}>
-        Genres ⬇️
+      <Heading fontSize="3xl" marginBottom={3}>
+        <ChakraLink
+          _focus={{ boxShadow: "none", outline: "none" }}
+          target="_blank"
+          fontWeight={600}
+          color="gray.400"
+          bgClip="text"
+          bgGradient="linear(to-l,#FF0080, #7928CA)"
+          _hover={{
+            bgGradient: "linear(to-l,yellow.500, red.500 )",
+          }}
+        >
+          Genres
+        </ChakraLink>{" "}
       </Heading>
       <List>
         {data.map((genre) => (
@@ -31,9 +43,11 @@ const GenreList = ({ selectedGenre, onSelectGenre }) => {
                 whiteSpace={"normal"}
                 textAlign="left"
                 onClick={() => onSelectGenre(genre)}
-                fontSize="lg"
+                fontSize="xl"
                 variant="link"
-                fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
+                fontWeight={
+                  genre.id === selectedGenre?.id ? "extrabold" : "semibold"
+                }
               >
                 {genre.name}
               </Button>
