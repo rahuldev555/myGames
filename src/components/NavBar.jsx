@@ -15,7 +15,7 @@ import { SiAmazongames } from "react-icons/si";
 const NavBar = ({ onSearch }) => {
   return (
     <>
-      <HStack padding="10px" justifyContent="space-evenly">
+      <HStack padding="10px">
         <Menu>
           <MenuButton
             onClick={() => toggleMenuHandler()}
