@@ -1,17 +1,21 @@
 import useData from "./useData";
+import { useQuery } from "@tanstack/react-query";
 
 const useGames = (gameQuery) =>
-  useData(
-    "/games",
-    {
-      params: {
-        genres: gameQuery.genre?.id,
-        platforms: gameQuery.platform?.id,
-        ordering: gameQuery.sortOrder,
-        search: gameQuery.searchText,
-      },
+  useQuery({
+    query,
+  });
+useData(
+  "/games",
+  {
+    params: {
+      genres: gameQuery.genre?.id,
+      platforms: gameQuery.platform?.id,
+      ordering: gameQuery.sortOrder,
+      search: gameQuery.searchText,
     },
-    [gameQuery]
-  );
+  },
+  [gameQuery]
+);
 
 export default useGames;
