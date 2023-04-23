@@ -1,16 +1,33 @@
-import { HStack, Image, Text, Icon } from "@chakra-ui/react";
+import {
+  HStack,
+  Image,
+  Text,
+  Icon,
+  useMediaQuery,
+  IconButton,
+  Menu,
+  MenuButton,
+  MenuList,
+} from "@chakra-ui/react";
 import SearchInput from "./SearchInput";
 import { SiAmazongames } from "react-icons/si";
 
 const NavBar = ({ onSearch }) => {
   return (
-    <div>
+    <>
       <HStack padding="10px" justifyContent="space-evenly">
+        <Menu>
+          <MenuButton
+            onClick={() => toggleMenuHandler()}
+            as={IconButton}
+            aria-label="Options"
+            variant="outline"
+          />
+        </Menu>
         <Icon as={SiAmazongames} boxSize="80px" />
-
         <SearchInput onSearch={onSearch} />
       </HStack>
-    </div>
+    </>
   );
 };
 

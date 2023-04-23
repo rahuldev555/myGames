@@ -7,11 +7,11 @@ import {
   ListItem,
   Link as ChakraLink,
 } from "@chakra-ui/react";
-import useGenres from "../hooks/useGenres";
+import useGenres from "./hooks/useGenres";
 import getCroppedImageUrl from "../services/image-url";
 
 const GenreList = ({ selectedGenre, onSelectGenre }) => {
-  const { data } = useGenres();
+  const { data, isLoading, error } = useGenres();
   return (
     <>
       <Heading fontSize="3xl" marginBottom={3}>
@@ -27,10 +27,10 @@ const GenreList = ({ selectedGenre, onSelectGenre }) => {
           }}
         >
           Genres
-        </ChakraLink>{" "}
+        </ChakraLink>
       </Heading>
       <List>
-        {data.map((genre) => (
+        {data?.results?.map((genre) => (
           <ListItem key={genre.id} paddingY="5px">
             <HStack>
               <Image
