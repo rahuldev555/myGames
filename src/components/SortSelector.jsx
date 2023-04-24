@@ -15,7 +15,12 @@ const SortSelector = ({ onSelectSortOrder, sortOrder }) => {
   );
   return (
     <Menu>
-      <MenuButton as={Button} rightIcon={<BsChevronDown />}>
+      <MenuButton
+        colorScheme="teal"
+        variant="outline"
+        as={Button}
+        rightIcon={<BsChevronDown />}
+      >
         Order by : {currentSortOrder?.label || "Relevence"}
       </MenuButton>
       <MenuList>

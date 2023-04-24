@@ -16,14 +16,6 @@ const NavBar = ({ onSearch }) => {
   return (
     <>
       <HStack padding="10px">
-        <Menu>
-          <MenuButton
-            onClick={() => toggleMenuHandler()}
-            as={IconButton}
-            aria-label="Options"
-            variant="outline"
-          />
-        </Menu>
         <Icon as={SiAmazongames} boxSize="80px" />
         <SearchInput onSearch={onSearch} />
       </HStack>
