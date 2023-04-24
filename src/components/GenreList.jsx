@@ -6,6 +6,8 @@ import {
   List,
   ListItem,
   Link as ChakraLink,
+  Box,
+  Text,
 } from "@chakra-ui/react";
 import useGenres from "./hooks/useGenres";
 import getCroppedImageUrl from "../services/image-url";
@@ -39,7 +41,9 @@ const GenreList = ({ selectedGenre, onSelectGenre }) => {
                 borderRadius={8}
                 src={getCroppedImageUrl(genre.image_background)}
               />
+
               <Button
+                // bgGradient="linear(to-r, green.200, pink.500)"
                 whiteSpace={"normal"}
                 textAlign="left"
                 onClick={() => onSelectGenre(genre)}
@@ -49,7 +53,14 @@ const GenreList = ({ selectedGenre, onSelectGenre }) => {
                   genre.id === selectedGenre?.id ? "extrabold" : "semibold"
                 }
               >
-                {genre.name}
+                <Text
+                  bgGradient="linear(to-r, green.400, pink.300)"
+                  bgClip="text"
+                  fontSize="xl"
+                  fontWeight="bold"
+                >
+                  {genre.name}
+                </Text>
               </Button>
             </HStack>
           </ListItem>
