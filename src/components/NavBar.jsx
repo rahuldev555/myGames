@@ -1,16 +1,6 @@
-import {
-  HStack,
-  Image,
-  Text,
-  Icon,
-  useMediaQuery,
-  IconButton,
-  Menu,
-  MenuButton,
-  MenuList,
-} from "@chakra-ui/react";
-import SearchInput from "./SearchInput";
+import { HStack, Icon } from "@chakra-ui/react";
 import { SiAmazongames } from "react-icons/si";
+import SearchInput from "./SearchInput";
 
 const NavBar = ({ onSearch }) => {
   return (
