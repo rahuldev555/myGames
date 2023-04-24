@@ -6,7 +6,7 @@ import NavBar from "./components/NavBar";
 import PlatformSelector from "./components/PlatformSelector";
 import SortSelector from "./components/SortSelector";
 import GameHeading from "./components/GameHeading";
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
 
 const App = () => {
   const [gameQuery, setGameQuery] = useState({});
@@ -64,9 +64,9 @@ const App = () => {
         </Box>
         <GameGrid gameQuery={gameQuery} />
       </GridItem>
-      <GridItem>
+      {/* <GridItem>
         <Footer />
-      </GridItem>
+      </GridItem> */}
     </Grid>
   );
 };
