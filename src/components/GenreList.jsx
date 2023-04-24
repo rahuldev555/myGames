@@ -1,19 +1,21 @@
 import {
   Button,
+  Link as ChakraLink,
   HStack,
   Heading,
   Image,
   List,
   ListItem,
-  Link as ChakraLink,
-  Box,
   Text,
 } from "@chakra-ui/react";
-import useGenres from "./hooks/useGenres";
 import getCroppedImageUrl from "../services/image-url";
+import useGameQueryStore from "../store";
+import useGenres from "./hooks/useGenres";
 
-const GenreList = ({ selectedGenre, onSelectGenre }) => {
+const GenreList = () => {
   const { data, isLoading, error } = useGenres();
+  const selectedGenreId = useGameQueryStore((s) => s.gameQuery.genreId);
+  const setSelectedGenreId = useGameQueryStore((s) => s.setGenreId);
   return (
     <>
       <Heading fontSize="3xl" marginBottom={3}>
@@ -46,11 +48,11 @@ const GenreList = ({ selectedGenre, onSelectGenre }) => {
                 // bgGradient="linear(to-r, green.200, pink.500)"
                 whiteSpace={"normal"}
                 textAlign="left"
-                onClick={() => onSelectGenre(genre)}
+                onClick={() => setSelectedGenreId(genre.id)}
                 fontSize="xl"
                 variant="link"
                 fontWeight={
-                  genre.id === selectedGenre?.id ? "extrabold" : "semibold"
+                  genre.id === selectedGenreId ? "extrabold" : "semibold"
                 }
               >
                 <Text
