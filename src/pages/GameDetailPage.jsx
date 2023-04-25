@@ -10,7 +10,16 @@ const GameDetailPage = () => {
   const { slug } = useParams();
   const { data: game, error, isLoading } = useGame(slug);
 
-  if (isLoading) return <Spinner />;
+  if (isLoading)
+    return (
+      <Spinner
+        thickness="4px"
+        speed="1s"
+        emptyColor="gray.200"
+        color="teal.300"
+        size="xl"
+      />
+    );
   if (error) throw error;
 
   return (

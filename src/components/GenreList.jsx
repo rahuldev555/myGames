@@ -1,13 +1,4 @@
-import {
-  Button,
-  Link as ChakraLink,
-  HStack,
-  Heading,
-  Image,
-  List,
-  ListItem,
-  Text,
-} from "@chakra-ui/react";
+import { Button, HStack, Image, List, ListItem, Text } from "@chakra-ui/react";
 import getCroppedImageUrl from "../services/image-url";
 import useGameQueryStore from "../store";
 import useGenres from "./hooks/useGenres";
@@ -16,23 +7,11 @@ const GenreList = () => {
   const { data, isLoading, error } = useGenres();
   const selectedGenreId = useGameQueryStore((s) => s.gameQuery.genreId);
   const setSelectedGenreId = useGameQueryStore((s) => s.setGenreId);
+
+  if (isLoading) return null;
+  if (error) throw error;
   return (
     <>
-      <Heading fontSize="3xl" marginBottom={3}>
-        <ChakraLink
-          _focus={{ boxShadow: "none", outline: "none" }}
-          target="_blank"
-          fontWeight={600}
-          color="gray.400"
-          bgClip="text"
-          bgGradient="linear(to-l,#FF0080, #7928CA)"
-          _hover={{
-            bgGradient: "linear(to-l,yellow.500, red.500 )",
-          }}
-        >
-          Genres
-        </ChakraLink>
-      </Heading>
       <List>
         {data?.results?.map((genre) => (
           <ListItem key={genre.id} paddingY="5px">
