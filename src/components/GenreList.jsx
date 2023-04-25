@@ -45,7 +45,6 @@ const GenreList = () => {
               />
 
               <Button
-                // bgGradient="linear(to-r, green.200, pink.500)"
                 whiteSpace={"normal"}
                 textAlign="left"
                 onClick={() => setSelectedGenreId(genre.id)}
@@ -56,7 +55,7 @@ const GenreList = () => {
                 }
               >
                 <Text
-                  bgGradient="linear(to-r, green.400, pink.300)"
+                  bgGradient="linear(to-r, teal.300, pink.200)"
                   bgClip="text"
                   fontSize="xl"
                   fontWeight="bold"
