@@ -1,15 +1,23 @@
-import { HStack, Icon } from "@chakra-ui/react";
-import { SiAmazongames } from "react-icons/si";
-import SearchInput from "./SearchInput";
+import { HamburgerIcon } from "@chakra-ui/icons";
+import { Box, HStack, IconButton } from "@chakra-ui/react";
 import ColorModeSwitch from "./ColorModeSwitch";
-import { Link } from "react-router-dom";
+import SearchInput from "./SearchInput";
 
-const NavBar = () => {
+const NavBar = ({ showSidebarButton = true, onShowSidebar }) => {
   return (
     <HStack padding="10px" justifyContent="space-between">
-      <Link to="/">
-        <Icon as={SiAmazongames} boxSize="70px" color="teal.300" />
-      </Link>
+      <Box flex="1">
+        {showSidebarButton && (
+          <IconButton
+            icon={<HamburgerIcon />}
+            colorScheme="teal"
+            variant="outline"
+            onClick={onShowSidebar}
+            margin={2}
+          />
+        )}
+      </Box>
+
       <SearchInput />
       <ColorModeSwitch />
     </HStack>
